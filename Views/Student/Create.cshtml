@@ -1,0 +1,38 @@
+﻿
+@model SmartCampusPortal.Models.Student
+
+<h2>Add Student</h2>
+
+<form asp-action="Create" method="post">
+
+    <div>
+        <label>Student Name</label>
+        <input asp-for="StudentName" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>Department</label>
+        <input asp-for="Department" />
+    </div>
+
+    <br />
+
+    <div>
+        <label>Enrollment Number</label>
+        <input asp-for="EnrollmentNumber" />
+    </div>
+
+    <br />
+
+    <button type="submit">Save Student</button>
+
+</form>

@@ -1,0 +1,43 @@
+﻿
+@model IEnumerable<SmartCampusPortal.Models.ServiceRequest>
+
+<h2>Service Requests</h2>
+
+<a asp-action="Create">Submit New Request</a>
+<br />
+<br />
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Request ID</th>
+        <th>Student ID</th>
+        <th>Service ID</th>
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+
+    @foreach (var request in Model)
+    {
+        <tr>
+            <td>@request.RequestId</td>
+            <td>@request.StudentId</td>
+            <td>@request.ServiceId</td>
+            <td>@request.RequestDescription</td>
+            <td>
+    @request.Status
+
+    <form asp-action="UpdateStatus" method="post">
+        <input type="hidden" name="id" value="@request.RequestId" />
+
+        <select name="status">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+        </select>
+
+        <button type="submit">Update</button>
+    </form>
+</td>
+        </tr>
+    }
+</table>

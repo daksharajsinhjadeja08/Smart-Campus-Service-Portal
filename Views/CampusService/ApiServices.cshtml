@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "API Services";
+}
+
+<h2>Campus Services - API Integration</h2>
+
+<p>This page will display campus services retrieved through the REST API.</p>
+
+<button onclick="loadServices()">Load Campus Services</button>
+
+<div id="services"></div>
+
+<script>
+    async function loadServices() {
+        const response = await fetch('/api/CampusServiceApi');
+        const services = await response.json();
+
+        let output = "<table border='1' cellpadding='10'>";
+        output += "<tr><th>ID</th><th>Name</th><th>Description</th><th>Location</th></tr>";
+
+        services.forEach(service => {
+            output += `<tr>
+                <td>${service.serviceId}</td>
+                <td>${service.serviceName}</td>
+                <td>${service.description}</td>
+                <td>${service.location}</td>
+            </tr>`;
+        });
+
+        output += "</table>";
+
+        document.getElementById("services").innerHTML = output;
+    }
+</script>

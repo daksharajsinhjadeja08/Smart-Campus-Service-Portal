@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SmartCampusPortal.Models.CampusService>
+
+<h2>Campus Services</h2>
+
+<a asp-action="Create">Add New Service</a>
+<br />
+<br />
+
+@if (Model.Any())
+{
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Service Name</th>
+            <th>Description</th>
+            <th>Location</th>
+        </tr>
+
+        @foreach (var service in Model)
+        {
+            <tr>
+                <td>@service.ServiceName</td>
+                <td>@service.Description</td>
+                <td>@service.Location</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No campus services available.</p>
+}

@@ -1,0 +1,29 @@
+﻿
+@model IEnumerable<SmartCampusPortal.Models.Student>
+
+<h2>Student Records</h2>
+
+<a asp-action="Create">Add New Student</a>
+<br />
+<br />
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Student ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Enrollment Number</th>
+    </tr>
+
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.StudentId</td>
+            <td>@student.StudentName</td>
+            <td>@student.Email</td>
+            <td>@student.Department</td>
+            <td>@student.EnrollmentNumber</td>
+        </tr>
+    }
+</table>

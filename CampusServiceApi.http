@@ -1,0 +1,24 @@
+@SmartCampusPortal_HostAddress = https://localhost:7000
+
+### POST - Add Campus Service
+POST {{SmartCampusPortal_HostAddress}}/api/CampusServiceApi
+Content-Type: application/json
+
+{
+  "serviceName": "Computer Lab",
+  "description": "Computer and internet facilities for students",
+  "location": "Block B"
+}
+
+### PUT - Update Campus Service
+PUT {{SmartCampusPortal_HostAddress}}/api/CampusServiceApi/2
+Content-Type: application/json
+
+{
+  "serviceId": 2,
+  "serviceName": "Updated Computer Lab",
+  "description": "Updated computer and internet facilities",
+  "location": "Block C"
+}
+### DELETE - Delete Campus Service
+DELETE {{SmartCampusPortal_HostAddress}}/api/CampusServiceApi/2
